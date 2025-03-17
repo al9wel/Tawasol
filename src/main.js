@@ -775,9 +775,3 @@ function toggleMenu() {
 }
 // calling functions
 getPosts();
-// document.addEventListener("click", () => {
-//     let menus = document.querySelectorAll(".tog-m");
-//     menus.forEach((menu) => {
-//         menu.classList.add("hidden")
-//     })
-// })
