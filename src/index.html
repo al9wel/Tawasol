@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../images/logo.svg" type="image/x-icon">
+    <!-- google fonst -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet" />
+    <!-- fontaweosm -->
+    <link rel="stylesheet" href="./all.min.css" />
+    <!-- sweet alert -->
+    <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <!-- tailwind -->
+    <link href="./output.css" rel="stylesheet" />
+    <!-- axios -->
+    <!-- mainstyle -->
+    <link rel="stylesheet" href="./style.css">
+    <title>تواصل</title>
+
+<body dir="rtl" class="min-h-screen bg-linear-to-tr bg-no-repeat from-blue-950 to-black mb-10">
+    <!-- loader -->
+    <div style="background:rgba(0, 0, 0, 0.909);border-radius: 27px; "
+        class="loader1 center rounded-md flex items-center justify-center flex-col text-2xl text-blue-50 hidden">
+        <span class="loader"></span>
+    </div>
+    <!-- end loader -->
+
+    <!-- start navbar -->
+    <div class="container m-auto mb-20">
+        <nav class="bg-white border-gray-200 dark:bg-gray-900">
+            <div class="flex justify-between items-center mx-auto max-w-screen-xl p-4 gap-4">
+                <div onclick="getPosts()" class="flex items-center gap-2 cursor-pointer">
+                    <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+                        تواصل
+                    </span>
+                </div>
+                <div class="navbar">
+                    <button class="menu-btn" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <div id="logedinBtnContainer" class="flex justify-center items-center flex-col ">
+                            <button class="userInfo flex items-center justify-center gap-2" style="padding: 3px;">
+                                <span id="infoName">al9wel</span>
+                                <img id="infoPic" class="rounded-full border border-blue-50"
+                                    style="width: 35px;height: 35px; object-fit:cover;" src="../images/user.png"
+                                    onerror="this.src='../images/user.png'" alt="">
+                            </button>
+                            <button onclick="logout()" style="padding: 9px 16px; text-align: center;" id="logoutBtn"
+                                type="button"
+                                class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 cursor-pointer rounded-lg md:text-xs md:px-5 md:py-2.5 py-1.5 px-3.5 text-sm text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-500 dark:focus:ring-red-800 duration-300 font-medium md:font-bold">
+                                تسجيل الخروج
+                            </button>
+                        </div>
+                        <div id="btnContainer" class="flex justify-center items-center flex-col ">
+                            <button style="text-align: center;padding: 5px 16px;font-size: 18px;font-weight: bold;"
+                                id="loginBtn" type="button"
+                                class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 cursor-pointer rounded-lg md:text-xs md:px-5 md:py-2.5 py-1.5 px-3.5 text-sm text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 duration-300 font-medium md:font-bold">
+                                دخول
+                            </button>
+                            <button style="text-align: center;padding: 5px 16px;font-size: 18px;font-weight: bold;"
+                                id="registerBtn" type="button"
+                                class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 cursor-pointer rounded-lg md:text-xs md:px-5 md:py-2.5 py-1.5 px-3.5 text-sm text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 duration-300 font-medium md:font-bold">
+                                تسجيل
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav class="bg-gray-50 dark:bg-gray-700 rounded-b-md">
+            <div class="max-w-screen-xl px-4 py-3 mx-auto">
+                <div class="flex items-center">
+                    <ul class="flex justify-center items-center gap-4 text-sm md:text-xl font-medium">
+                        <li>
+                            <button
+                                class="links bg-linear-to-bl bg-no-repeat from-blue-950 to-gray-800 hover:to-gray-700"
+                                onclick="getPosts()">الرئيسيه</button>
+                        </li>
+                        <li id="profile">
+                            <button
+                                class="links bg-linear-to-bl bg-no-repeat from-blue-950 to-gray-800 hover:to-gray-700"
+                                onclick="gotoProfile()">حسابي</button>
+                        </li>
+                        <li>
+                            <button
+                                class="links bg-linear-to-bl bg-no-repeat from-blue-950 to-gray-800 hover:to-gray-700">تواصل
+                                معنا</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- end navbar -->
+
+    <!-- start home -->
+    <div class="container m-auto">
+        <!-- posts container -->
+        <div id="posts" class="flex justify-center items-center gap-5 flex-col ">
+        </div>
+        <!-- posts container -->
+    </div>
+    <!-- end home -->
+
+    <!-- floating button -->
+    <button id="addPostBtn"
+        class="hidden bg-linear-to-bl bg-no-repeat from-blue-950 to-gray-800 hover:to-gray-700 text-blue-100 fixed px-4 py-2 md:px-6 md:py-4 border-2 border-blue-50 bottom-20 right-1 md:right-6 cursor-pointer rounded-full text-2xl font-bold">
+        <i class="fa-solid fa-circle-plus"></i>
+        اضافه
+    </button>
+    <!-- floating button -->
+
+    <script src="./main.js"></script>
+    <div style="width: 100%; height: 30px;"></div>
+</body>
+
+</html>

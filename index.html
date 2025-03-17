@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل</title>
+    <link rel="icon" href="images/logo.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            background-color: black;
+            direction: rtl;
+        }
+
+        * {
+            font-family: "Cairo", serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .an {
+            position: relative;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            font-size: 2em;
+            letter-spacing: 4px;
+            overflow: hidden;
+            background: linear-gradient(90deg, #000, #fff, #000);
+            background-repeat: no-repeat;
+            background-size: 80%;
+            animation: animate 10s linear infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: rgba(255, 255, 255, 0);
+        }
+
+        @keyframes animate {
+            0% {
+                background-position: -500%;
+            }
+
+            100% {
+                background-position: 500%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w-screen h-screen flex justify-center items-center flex-col bg-black dark:bg-white ">
+        <h1
+            class="relative w-full xl:text-9xl md:text-8xl text-5xl sm:tracking-[17px] tracking-[10px] uppercase text-center leading-[0.70em] outline-none animate-dimlight box-reflect">
+            تواصل</h1>
+        <h1 class="an mt-40 text-sm md:text-2xl text-gray-600">Developed By @al9wel</h1>
+        <h1 class="mt-2 text-sm md:text-2xl text-gray-600">API FROM Tarmeez Academy</h1>
+        <h1 id="counter" class=" mt-2 text-2xl text-gray-600">10</h1>
+    </div>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    keyframes: {
+                        dimlight: {
+                            '0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92%': {
+                                color: '#0e3742',
+                                boxShadow: 'none',
+                            },
+                            '18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100%': {
+                                color: '#fff',
+                                textShadow: '0 0 10px #03bcf4',
+                            },
+                        },
+                    },
+                    animation: {
+                        dimlight: 'dimlight 5s infinite',
+                    },
+                },
+            },
+            plugins: [
+                function ({
+                    addUtilities
+                }) {
+                    addUtilities({
+                        '.box-reflect': {
+                            '-webkit-box-reflect': 'below 1px linear-gradient(transparent, #0004)',
+                        },
+                    });
+                },
+            ],
+        }
+        let counter = document.getElementById("counter");
+        setTimeout(() => {
+            counter.innerHTML = "9"
+        }, 1000)
+        setTimeout(() => {
+            counter.innerHTML = "8"
+        }, 2000)
+        setTimeout(() => {
+            counter.innerHTML = "7"
+        }, 3000)
+        setTimeout(() => {
+            counter.innerHTML = "6"
+        }, 4000)
+        setTimeout(() => {
+            counter.innerHTML = "5"
+        }, 5000)
+        setTimeout(() => {
+            counter.innerHTML = "4"
+        }, 6000)
+        setTimeout(() => {
+            counter.innerHTML = "3"
+        }, 7000)
+        setTimeout(() => {
+            counter.innerHTML = "2"
+        }, 8000)
+        setTimeout(() => {
+            counter.innerHTML = "1"
+        }, 9000)
+        setTimeout(() => {
+            window.location.href = "src/index.html"
+        }, 10000)
+    </script>
+</body>
+
+</html>
