@@ -64,9 +64,12 @@ async function fillUserInfo(id) {
         }
         let data = await response.json();
         let user = data.data;
-        console.log(user)
         userInfoContainer.classList.add("bac")
         userInfoContainer.classList.remove("hidden")
+        let userEmail = ``;
+        if (user.email != null) {
+            userEmail = user.email;
+        }
         userInfoContainer.innerHTML = `
         <div class="card flex flex-col items-center  justify-center gap-4" style="
     background-color: #36415369;
@@ -98,7 +101,7 @@ async function fillUserInfo(id) {
         <h1 style="text-align: center;
             color: rgba(255, 255, 255, 0.582);
             font-weight: bold;
-            font-size: 20px;">${user.email}</h1>
+            font-size: 20px;">${userEmail}</h1>
         <div class="flex items-center justify-center gap-2">
             <div>
                 <h1 style="text-align: center;
@@ -628,5 +631,50 @@ async function deletePost(id) {
             }
         }
     });
+}
+function contactUs() {
+    Swal.fire({
+        title: "تواصل معنا",
+        html: `
+        <div>
+            <div class="main">
+        <div class="up">
+            <button class="card1" onclick="gotoGmail()">
+                <i style="font-family: monospace;font-size: 40px;" class="fa-solid fa-g gmail"></i>
+            </button>
+            <button class="card2" onclick="gotolinkedin()">
+                <i class="fa-brands fa-linkedin linkedin"></i>
+            </button>
+        </div>
+        <div class="down">
+            <button class="card3" onclick="gotoGithub()">
+                <i class="fa-brands fa-github github"></i>
+            </button>
+            <button class="card4" onclick="gotoWhatsapp()">
+                <i class="fa-brands fa-whatsapp whatsapp"></i>
+            </button>
+        </div>
+    </div>
+        </div>
+        `,
+        showCloseButton: true,
+        focusConfirm: false,
+        color: "#fff",
+        background: "#050f16",
+        confirmButtonText: "حسنا",
+        confirmButtonColor: "#263238",
+    });
+}
+function gotoGmail() {
+    window.location.href = 'mailto:sa.al9wel@gmail.com'
+}
+function gotoWhatsapp() {
+    window.location.href = `https://wa.me/+967736584524`;
+}
+function gotoGithub() {
+    window.location.href = `https://github.com/al9wel`;
+}
+function gotolinkedin() {
+    window.location.href = `https://linkedin.com/in/al9wel1`;
 }
 fillCurrentUserInfo();
