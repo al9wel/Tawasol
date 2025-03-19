@@ -593,3 +593,25 @@ body::-webkit-scrollbar-track {
 .card4:hover .whatsapp {
   color: white;
 }
+.wha {
+  background-color: white;
+  color: #218939;
+  font-size: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.wha:hover {
+  color: white;
+  background-color: #218939;
+}
+.tel {
+  background-color: white;
+  color: #2a6fc3;
+  font-size: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.tel:hover {
+  color: white;
+  background-color: #2a6fc3;
+}

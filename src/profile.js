@@ -2,6 +2,15 @@ const loader = document.querySelector(".loader1");
 function fillCurrentUserInfo() {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
+    const user = JSON.parse(localStorage.getItem("user"))
+    if (user) {
+        if (user.id == id) {
+            document.getElementById("addPostBtn").classList.remove("hidden");
+        }
+        else {
+            document.getElementById("addPostBtn").classList.add("hidden");
+        }
+    }
     fillUserInfo(id);
 }
 function gotoHome() {
@@ -275,15 +284,40 @@ async function addComment(id) {
     }
 
 }
-document.addEventListener('click', function (event) {
-    let menu = document.getElementById('dropdownMenu');
-    let toggleButton = document.querySelector('.menu-btn');
-    if (!menu.contains(event.target) && event.target !== toggleButton) {
-        menu.style.display = 'none';
-    }
-});
 function sendPost(id) {
-    console.log(id)
+    const baseUrl = window.location.origin;
+    const postUrl = `/src/post.html?id=${id}`;
+    const fullUrl = baseUrl + postUrl;
+    Swal.fire({
+        title: "مشاركه المنشور",
+        html: `
+        <input id="url" type="text" readonly style="width:90%; background-color: white;color: #000000c2;text-align:center;font-size:14px; outline:none;border-radius: 6px; " value="${fullUrl}">
+        
+        <div style="margin-top:10px;" class="flex items-center justify-center gap-4">
+        <button onclick="sendWhatsapp()" class="wha rounded-full" style="padding: 10px 13px;display: flex;align-items: center;justify-content: center;">
+                <i class="fa-brands fa-whatsapp"></i>
+        </button>
+        <button onclick="sendTelegram()" class="tel rounded-full" style="padding: 10px 13px;display: flex;align-items: center;justify-content: center;">
+                <i class="fa-brands fa-telegram"></i>
+        </button>
+        </div>
+        `,
+        showCloseButton: true,
+        showConfirmButton: false,
+        focusConfirm: false,
+        color: "#fff",
+        background: "#050f16",
+    });
+}
+function sendWhatsapp() {
+    const url = document.getElementById("url").value
+    let whatsappUrl = "https://wa.me/?text=" + encodeURIComponent(url);
+    window.open(whatsappUrl, "_blank");
+}
+function sendTelegram() {
+    const url = document.getElementById("url").value
+    var telegramUrl = "https://t.me/share/url?url=" + encodeURIComponent(url);
+    window.open(telegramUrl, "_blank");
 }
 function pagePost(name, title, body, commentsCount, published, img, profileImg, tags, number, userID, username) {
     let tagContent = "";
@@ -489,6 +523,7 @@ async function newPost(title, body, img) {
     }
 }
 function selectImages(btnID, imageID, delBtnId) {
+    document.getElementById("postImage").classList.remove("hidden")
     let btn = document.getElementById(btnID);
     let image = document.getElementById(imageID);
     let delBtn = document.getElementById(delBtnId);
@@ -506,6 +541,7 @@ function delPic(btnID, imageID, delBtnId) {
     image.setAttribute("src", null);
     delBtn.classList.add("hidden");
     btn.value = '';
+    document.getElementById("postImage").classList.add("hidden")
 }
 async function updatePost(id) {
     let postImage = document.getElementById(`postImage-${id}`).getAttribute("src")

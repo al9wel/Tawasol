@@ -32,7 +32,7 @@
     <div class="container m-auto mb-20">
         <nav class="bg-white border-gray-200 dark:bg-gray-900">
             <div class="flex justify-between items-center mx-auto max-w-screen-xl p-4 gap-4">
-                <div onclick="getPosts()" class="flex items-center gap-2 cursor-pointer">
+                <div onclick="gotoHome()" class="flex items-center gap-2 cursor-pointer">
                     <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
                         تواصل
@@ -77,7 +77,7 @@
                         <li>
                             <button
                                 class="links bg-linear-to-bl bg-no-repeat from-blue-950 to-gray-800 hover:to-gray-700"
-                                onclick="getPosts()">الرئيسيه</button>
+                                onclick="gotoHome()">الرئيسيه</button>
                         </li>
                         <li id="profile">
                             <button
@@ -114,8 +114,8 @@
     </button>
     <!-- floating button -->
 
-    <script src="./main.js"></script>
-    <div style="width: 100%; height: 30px;"></div>
+    <script src="./post.js"></script>
+    <div style="width: 100%; height: 100px;"></div>
 </body>
 
 </html>
