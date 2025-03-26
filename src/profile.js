@@ -5,10 +5,7 @@ function fillCurrentUserInfo() {
     const user = JSON.parse(localStorage.getItem("user"))
     if (user) {
         // 
-        let username = document.getElementById("infoName");
-        let userImage = document.getElementById("infoPic");
-        username.innerHTML = user.username;
-        userImage.setAttribute("src", user.profile_image);
+        // here im going to merge 
         if (user.id == id) {
             document.getElementById("addPostBtn").classList.remove("hidden");
         }
