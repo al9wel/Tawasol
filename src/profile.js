@@ -45,7 +45,7 @@ async function successError(icon, title) {
         title: title
     });
 }
-function gotoProfile() {
+function gotoProfile(id) {
     const token = localStorage.getItem("token");
     if (token == null) {
         Swal.fire({
@@ -60,7 +60,13 @@ function gotoProfile() {
     }
     else {
         const user = JSON.parse(localStorage.getItem("user"));
-        window.location.href = `profile.html?id=${user.id}`
+        let currentID = user.id
+        if (id == null) {
+            window.location.href = `profile.html?id=${currentID}`
+        }
+        else {
+            window.location.href = `profile.html?id=${id}`
+        }
     }
 }
 async function fillUserInfo(id) {
