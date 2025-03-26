@@ -9,6 +9,7 @@ function fillCurrentUserInfo() {
         let userImage = document.getElementById("infoPic");
         username.innerHTML = user.username;
         userImage.setAttribute("src", user.profile_image);
+        // dd
         if (user.id == id) {
             document.getElementById("addPostBtn").classList.remove("hidden");
         }
