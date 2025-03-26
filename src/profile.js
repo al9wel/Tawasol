@@ -4,6 +4,8 @@ function fillCurrentUserInfo() {
     const id = urlParams.get('id');
     const user = JSON.parse(localStorage.getItem("user"))
     if (user) {
+        // 
+        // here im going to merge 
         if (user.id == id) {
             document.getElementById("addPostBtn").classList.remove("hidden");
         }
