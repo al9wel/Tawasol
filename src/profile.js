@@ -5,7 +5,6 @@ function fillCurrentUserInfo() {
     const user = JSON.parse(localStorage.getItem("user"))
     if (user) {
         // 
-
         if (user.id == id) {
             document.getElementById("addPostBtn").classList.remove("hidden");
         }
