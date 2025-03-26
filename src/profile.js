@@ -4,7 +4,10 @@ function fillCurrentUserInfo() {
     const id = urlParams.get('id');
     const user = JSON.parse(localStorage.getItem("user"))
     if (user) {
-        // 
+        let username = document.getElementById("infoName");
+        let userImage = document.getElementById("infoPic");
+        username.innerHTML = user.username;
+        userImage.setAttribute("src", user.profile_image);
         if (user.id == id) {
             document.getElementById("addPostBtn").classList.remove("hidden");
         }
