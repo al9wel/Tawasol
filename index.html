@@ -96,37 +96,28 @@
                 },
             ],
         }
-        let counter = document.getElementById("counter");
-        setTimeout(() => {
-            counter.innerHTML = "9"
-        }, 1000)
-        setTimeout(() => {
-            counter.innerHTML = "8"
-        }, 2000)
-        setTimeout(() => {
-            counter.innerHTML = "7"
-        }, 3000)
-        setTimeout(() => {
-            counter.innerHTML = "6"
-        }, 4000)
-        setTimeout(() => {
-            counter.innerHTML = "5"
-        }, 5000)
-        setTimeout(() => {
-            counter.innerHTML = "4"
-        }, 6000)
-        setTimeout(() => {
-            counter.innerHTML = "3"
-        }, 7000)
-        setTimeout(() => {
-            counter.innerHTML = "2"
-        }, 8000)
-        setTimeout(() => {
-            counter.innerHTML = "1"
-        }, 9000)
-        setTimeout(() => {
+        let ele = document.getElementById("counter");
+        function change(v) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    ele.innerHTML = v
+                    resolve()
+                }, 1000)
+            })
+        }
+        async function call() {
+            await change(9)
+            await change(8)
+            await change(7)
+            await change(6)
+            await change(5)
+            await change(4)
+            await change(3)
+            await change(2)
+            await change(1)
             window.location.href = "src/index.html"
-        }, 10000)
+        }
+        call()
     </script>
 </body>
 
