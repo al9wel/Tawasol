@@ -1,6 +1,6 @@
-# 🌐 Simple Social Media Website
+# 🌐 Tawasol Social Media Website
 
-A simple and interactive **social media web application** built using **HTML, CSS, and JavaScript** with the **Tarmeez Academy API** as the backend service.  
+Tawasol is a simple and interactive **social media web application** built using **HTML, CSS, and JavaScript** with the **Tarmeez Academy API** as the backend service.  
 The app allows users to create accounts, log in, post content, view others’ posts, and interact with a dynamic feed — all through live API integration.
 
 ---
@@ -44,12 +44,12 @@ It also demonstrates the basics of **authentication**, **CRUD operations**, and 
 1. **Clone or Download the Project**
 
    ```bash
-   git clone https://github.com/yourusername/Simple-SocialMedia.git
+   git clone https://github.com/al9wel/Tawasol.git
    ```
 
 2. **Open the Folder**
    ```bash
-   cd Simple-SocialMedia
+   cd Tawasol
    ```
 3. **Install The Libraryes**
    ```bash
