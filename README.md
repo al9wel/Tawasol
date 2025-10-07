@@ -11,6 +11,12 @@ The app allows users to create accounts, log in, post content, view others’ po
 
 ---
 
+## 📍Live Demo
+
+- https://al9wel-6.netlify.app/
+
+---
+
 ## 🚀 Features
 
 - 👤 **User Authentication** – Register, log in, and log out using the Tarmeez Academy API.
